@@ -25,37 +25,37 @@ function Login() {
 
 
     return (
-        <div>
+        <div className="login-page">
             <h2>Đăng Nhập</h2>
-            <form onSubmit={handleLogin} style={{maxWidth: '350px'}}>
-                <div style={{ marginBottom: '15px' }}>
+            <form onSubmit={handleLogin} className="login-form">
+                <div className="form-group">
                     <label>Username:</label>
                     <input
                         type="text"
                         value={username}
                         onChange={(e) => setUsername(e.target.value)}
                         required
-                        style={{ width: '100%', padding: '8px', boxSizing: 'border-box' }}
+                        className="form-control"
                         placeholder="Nhập username"
                     />
                 </div>
-                <div style={{ marginBottom: '15px' }}>
+                <div className="form-group">
                     <label>Password:</label>
                     <input
                         type="password"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                         required
-                        style={{ width: '100%', padding: '8px', boxSizing: 'border-box' }}
+                        className="form-control"
                         placeholder="Nhập password"
                     />
                 </div>
-                <button type="submit" disabled={loading} style={{ padding: '10px 20px' }}>
+                <button type="submit" disabled={loading} className="btn-primary">
                     {loading ? 'Đang đăng nhập...' : 'Đăng Nhập'}
                 </button>
             </form>
-            {message && <p style={{ marginTop: '20px', fontWeight: 'bold' }}>{message}</p>}
-            <p>
+            {message && <p className={message.includes('thành công') ? 'success-message' : 'error-message'}>{message}</p>}
+            <p style={{marginTop: '20px', color: '#7f8c8d'}}>
                 Thử: admin / password (ADMIN)<br/>
                 Thử: user / password (USER)
             </p>

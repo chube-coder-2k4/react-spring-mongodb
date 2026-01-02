@@ -3,6 +3,7 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  color: #333; /* Màu chữ mặc định đậm hơn */
 }
 
 .header {
@@ -13,6 +14,7 @@
   align-items: center;
   justify-content: space-between;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  z-index: 10; /* Đảm bảo header nổi lên trên */
 }
 
 .header h1 {
@@ -23,11 +25,11 @@
 .header button {
   background-color: #34495e;
   color: white;
-  border: 1px solid #ecf0f1;
+  border: 1px solid #7f8c8d;
   padding: 8px 15px;
   border-radius: 4px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: all 0.3s;
 }
 
 .header button:hover {
@@ -42,16 +44,17 @@
 
 .sidebar {
   width: 250px;
-  background-color: #ecf0f1;
+  background-color: #2c3e50; /* Chuyển sang nền tối cho dễ nhìn */
   padding: 20px;
-  border-right: 1px solid #bdc3c7;
+  border-right: 1px solid #34495e;
   transition: width 0.3s ease;
+  color: #ecf0f1;
 }
 
 .sidebar h2 {
   margin-top: 0;
-  color: #2c3e50;
-  border-bottom: 2px solid #3498db;
+  color: #ecf0f1;
+  border-bottom: 2px solid #34495e;
   padding-bottom: 10px;
   margin-bottom: 20px;
 }
@@ -67,7 +70,7 @@
 
 .sidebar a {
   text-decoration: none;
-  color: #34495e;
+  color: #bdc3c7; /* Màu chữ xám sáng trên nền tối */
   font-size: 16px;
   display: block;
   padding: 12px 15px;
@@ -76,86 +79,149 @@
 }
 
 .sidebar a:hover {
-  background-color: #bdc3c7;
-  color: #2c3e50;
+  background-color: #34495e; /* Màu nền khi hover sáng hơn một chút */
+  color: white;
   transform: translateX(5px);
 }
 
 .content {
   flex: 1;
   padding: 40px;
-  background-color: #f9f9f9;
+  background-color: #f0f2f5;
+  overflow-y: auto; /* Cho phép cuộn nếu nội dung dài */
+}
+
+/* Container chung cho các trang để giới hạn chiều rộng */
+.page-container {
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 /* Styling for Products List */
-.content ul {
+.product-list {
   list-style: none;
   padding: 0;
 }
 
-.content li {
+.product-item {
   background: white;
-  border: 1px solid #ddd;
-  margin-bottom: 10px;
-  padding: 15px;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  border: 1px solid #e1e4e8;
+  margin-bottom: 15px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
   display: flex;
   justify-content: space-between;
   align-items: center;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
-.content li strong {
+.product-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.product-item strong {
+  font-size: 1.2rem;
+  color: #2c3e50;
+}
+
+.product-price {
+  color: #e74c3c;
+  font-weight: bold;
   font-size: 1.1rem;
-  color: #2980b9;
 }
 
-/* Form Styling */
-form {
+/* Login Page Styling */
+.login-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh; /* Căn giữa theo chiều dọc */
+}
+
+.login-form {
   background: white;
-  padding: 25px;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
   border: 1px solid #eee;
+  width: 100%;
+  max-width: 400px;
 }
 
-form label {
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
   font-weight: 600;
   color: #34495e;
   display: block;
-  margin-bottom: 5px;
+  margin-bottom: 8px;
 }
 
-form input {
+.form-control {
+  width: 100%;
   border: 1px solid #bdc3c7;
-  border-radius: 4px;
-  padding: 10px;
-  font-size: 14px;
-  transition: border-color 0.3s;
+  border-radius: 6px;
+  padding: 12px;
+  font-size: 15px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  box-sizing: border-box; /* Quan trọng để padding không làm vỡ layout */
+  color: #2c3e50;
 }
 
-form input:focus {
+.form-control:focus {
   border-color: #3498db;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
   outline: none;
 }
 
-form button {
+.btn-primary {
   background-color: #3498db;
   color: white;
   border: none;
-  border-radius: 4px;
-  font-weight: bold;
+  border-radius: 6px;
+  font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s, transform 0.1s;
   width: 100%;
+  padding: 12px;
+  font-size: 16px;
   margin-top: 10px;
 }
 
-form button:hover {
+.btn-primary:hover {
   background-color: #2980b9;
 }
 
-form button:disabled {
+.btn-primary:active {
+  transform: scale(0.98);
+}
+
+.btn-primary:disabled {
   background-color: #95a5a6;
   cursor: not-allowed;
+}
+
+.error-message {
+  color: #e74c3c;
+  background-color: #fadbd8;
+  padding: 10px;
+  border-radius: 4px;
+  margin-top: 15px;
+  text-align: center;
+  border: 1px solid #f5b7b1;
+}
+
+.success-message {
+  color: #27ae60;
+  background-color: #d5f5e3;
+  padding: 10px;
+  border-radius: 4px;
+  margin-top: 15px;
+  text-align: center;
+  border: 1px solid #abebc6;
 }

@@ -26,15 +26,16 @@ function Products() {
     }
 
   return (
-    <div>
+    <div className="page-container">
       <h2>Danh Sách Sản Phẩm</h2>
       {products.length === 0 ? (
         <p>Đang tải...</p>
       ) : (
-        <ul>
+        <ul className="product-list">
           {products.map(p => (
-            <li key={p.id}>
-              <strong>{p.name}</strong> - {p.price.toLocaleString('vi-VN')} ₫
+            <li key={p.id} className="product-item">
+              <strong>{p.name}</strong> 
+              <span className="product-price">{p.price.toLocaleString('vi-VN')} ₫</span>
             </li>
           ))}
         </ul>
