@@ -13,6 +13,7 @@ import Home from './pages/Home';
 import Products from './pages/Products';
 import Profile from './pages/Profile';
 import Login from './pages/Login';
+import About from './components/About';
 
 function Layout() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
@@ -21,6 +22,7 @@ function Layout() {
     { name: 'Products', path: '/products' },
     { name: 'Profile', path: '/profile' },
     { name: 'Login', path: '/login' },
+    { name: 'About', path: '/about' },
   ];
 
   return (
@@ -33,7 +35,7 @@ function Layout() {
       <div className="main-layout">
         <Sidebar menuItems={menuItems} isOpen={isSidebarOpen} />
         <main className="content">
-          <Outlet />
+          <Outlet /> {/* Nơi các page con sẽ render */}
         </main>
       </div>
     </div>
@@ -49,6 +51,7 @@ const router = createBrowserRouter([
       { path: "products", element: <Products /> },
       { path: "profile", element: <Profile /> },
       { path: "login", element: <Login /> },
+      { path: "about", element: <About /> },
     ]
   }
 ]);
