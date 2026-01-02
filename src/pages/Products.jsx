@@ -1,17 +1,29 @@
 import { useState, useEffect } from 'react';
+import { getProducts } from '../services/api'; 
 
 function Products() {
   const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    setTimeout(() => {
-      setProducts([
-        { id: 1, name: 'Laptop Dell', price: 15000000 },
-        { id: 2, name: 'iPhone 15', price: 25000000 },
-        { id: 3, name: 'Tai nghe Sony', price: 3000000 },
-      ]);
-    }, 800);
-  }, []);
+    getProducts()
+      .then(response => {
+        setProducts(response);
+        setLoading(false);
+        })
+        .catch(() => {
+            setError('Lỗi khi tải sản phẩm');
+            setLoading(false);
+        });
+    }, []);
+
+    if(loading) {
+        return <p>Đang tải...</p>;
+    }
+    if(error) {
+        return <p>{error}</p>;
+    }
 
   return (
     <div>
