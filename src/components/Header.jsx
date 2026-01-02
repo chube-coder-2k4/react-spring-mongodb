@@ -1,7 +1,4 @@
-import { useState } from 'react';
-
-function Header({title}) {
-    const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+function Header({title, isSidebarOpen, setIsSidebarOpen}) {
 
     const toggleSidebar = () => {
         setIsSidebarOpen(!isSidebarOpen);
