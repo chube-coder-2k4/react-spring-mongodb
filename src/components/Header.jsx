@@ -1,7 +1,7 @@
-function Header() {
+function Header({title}) {
     return (
         <header className="header">
-            <h1>My Product Management App</h1>
+            <h1>{title}</h1>
         </header>
     );
 }
