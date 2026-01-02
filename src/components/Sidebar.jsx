@@ -1,4 +1,7 @@
-function Sidebar({menuItems}) {
+function Sidebar({menuItems, isOpen}) {
+    if(!isOpen) {
+        return null;
+    }
   return (
     <aside className="sidebar">
       <h2>Sidebar</h2>
