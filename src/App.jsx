@@ -16,7 +16,12 @@ import Login from './pages/Login';
 
 function Layout() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
-  const menuItems = ['Home', 'Products', 'Profile', 'Login', 'Logout'];
+  const menuItems = [
+    { name: 'Home', path: '/' },
+    { name: 'Products', path: '/products' },
+    { name: 'Profile', path: '/profile' },
+    { name: 'Login', path: '/login' },
+  ];
 
   return (
     <div className="app">
