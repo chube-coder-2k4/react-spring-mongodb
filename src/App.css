@@ -1,26 +1,27 @@
-.app{
-  font-family: Arial, sans-serif;
+.sidebar ul {
+  list-style: none;
+  padding: 0;
 }
 
-.header{
-  background-color: #282c34;
-  padding: 20px;
-  color: white;
-  text-align: center;
+.sidebar li {
+  margin: 10px 0;
 }
 
-.main-layout{
-  display: flex;
+.sidebar a {
+  text-decoration: none;
+  color: #333;
+  font-size: 18px;
+  display: block;
+  padding: 10px;
+  border-radius: 5px;
 }
 
-.sidebar{
-  width: 250px;
-  background-color: #b41c1c;
-  padding: 15px;
-  min-height: 100vh;
+.sidebar a:hover {
+  background-color: #e0e0e0;
 }
 
-.content{
-  flex: 1;
-  padding: 40px;
+.active-link {
+  background-color: #007bff;
+  color: white !important;
+  font-weight: bold;
 }

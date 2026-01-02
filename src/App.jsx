@@ -33,7 +33,7 @@ function Layout() {
       <div className="main-layout">
         <Sidebar menuItems={menuItems} isOpen={isSidebarOpen} />
         <main className="content">
-          <Outlet /> {/* Nơi các page con sẽ render */}
+          <Outlet />
         </main>
       </div>
     </div>
